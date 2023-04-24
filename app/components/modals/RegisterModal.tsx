@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import { AiFillLinkedin } from "react-icons/ai";
-// import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -14,6 +13,7 @@ import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import Button from "../Button";
+import { signIn } from "next-auth/react";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -87,13 +87,13 @@ const RegisterModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
       />
       <Button
         outline
         label="Continue with Linkedin"
         icon={AiFillLinkedin}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
 
       <div className="text-neutral-500 text-center mt-4 font-light">
