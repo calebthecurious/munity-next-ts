@@ -7,6 +7,7 @@ import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "./providers/ToasterProvider";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
+import TimeModal from "./components/modals/TimeModal";
 
 export const metadata = {
   title: "Munity",
@@ -26,6 +27,7 @@ export default async function RootLayout({
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
+          <TimeModal />
           <LoginModal />
           <RegisterModal />
           <Navbar currentUser={currentUser} />
