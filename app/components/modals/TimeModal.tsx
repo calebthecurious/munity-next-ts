@@ -11,6 +11,7 @@ import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import dynamic from "next/dynamic";
+import Counter from "../inputs/Counter";
 
 enum STEPS {
   CATEGORY = 0,
@@ -48,6 +49,8 @@ const TimeModal = () => {
 
   const category = watch("category");
   const location = watch("location");
+  const seekerCount = watch("seekerCount");
+  const lessonCount = watch("lessonCount");
 
   const Map = useMemo(
     () =>
@@ -130,6 +133,31 @@ const TimeModal = () => {
           onChange={(value) => setCustomValue("location", value)}
         />
         <Map center={location?.latlng} />
+      </div>
+    );
+  }
+
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Tell us about your skill"
+          subtitle="How long have you been at it"
+        />
+        <Counter
+          title="Learners"
+          subtitle="How many learners do you allow"
+          value={seekerCount}
+          onChange={(value) => setCustomValue("seekerCount", value)}
+        />
+        <hr />
+        <Counter
+          title="Lessons"
+          subtitle="How many lessons do you have"
+          value={lessonCount}
+          onChange={(value) => setCustomValue("lessonCount", value)}
+        />
+        <hr />
       </div>
     );
   }
