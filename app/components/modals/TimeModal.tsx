@@ -12,6 +12,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import dynamic from "next/dynamic";
 import Counter from "../inputs/Counter";
+import ImageUpload from "../inputs/ImageUpload";
 
 enum STEPS {
   CATEGORY = 0,
@@ -51,6 +52,7 @@ const TimeModal = () => {
   const location = watch("location");
   const seekerCount = watch("seekerCount");
   const lessonCount = watch("lessonCount");
+  const imageSrc = watch("imageSrc");
 
   const Map = useMemo(
     () =>
@@ -158,6 +160,21 @@ const TimeModal = () => {
           onChange={(value) => setCustomValue("lessonCount", value)}
         />
         <hr />
+      </div>
+    );
+  }
+
+  if (step === STEPS.IMAGES) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Add a photo of your skill"
+          subtitle="Showcase what your skill looks like"
+        />
+        <ImageUpload
+          value={imageSrc}
+          onChange={(value) => setCustomValue("imageSrc", value)}
+        />
       </div>
     );
   }
