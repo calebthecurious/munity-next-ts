@@ -38,6 +38,7 @@ export async function POST(
       category,
       seekerCount,
       lessonCount,
+
       locationValue: location.value,
       price: parseInt(price, 10),
       userId: currentUser.id
