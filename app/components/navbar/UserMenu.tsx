@@ -2,8 +2,9 @@
 
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
-import { signOut } from "next-auth/react";
 import { useCallback, useState } from "react";
+import { signOut } from "next-auth/react";
+
 import MenuItem from "./MenuItem";
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -39,11 +40,6 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         <div
           onClick={onTime}
           className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg:neutral-100 transition cursor-pointer"
-          with
-          the
-          report
-          like
-          so
         >
           Become a guide
         </div>

@@ -1,13 +1,15 @@
 import { Nunito } from "next/font/google";
 
 import "./globals.css";
+
 import Navbar from "./components/navbar/Navbar";
 import ClientOnly from "./components/navbar/ClientOnly";
 import RegisterModal from "./components/modals/RegisterModal";
-import ToasterProvider from "./providers/ToasterProvider";
-import LoginModal from "./components/modals/LoginModal";
-import getCurrentUser from "./actions/getCurrentUser";
 import TimeModal from "./components/modals/TimeModal";
+import LoginModal from "./components/modals/LoginModal";
+
+import ToasterProvider from "./providers/ToasterProvider";
+import getCurrentUser from "./actions/getCurrentUser";
 
 export const metadata = {
   title: "Munity",
@@ -32,7 +34,7 @@ export default async function RootLayout({
           <RegisterModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
-        {children}
+        <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
   );

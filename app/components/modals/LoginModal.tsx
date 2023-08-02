@@ -18,8 +18,10 @@ import Button from "../Button";
 
 const LoginModal = () => {
   const router = useRouter();
+
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -102,7 +104,7 @@ const LoginModal = () => {
       text-neutral-500 text-center mt-4 font-light"
       >
         <p>
-          First time using Airbnb?
+          First time using Munity?
           <span
             onClick={onToggle}
             className="
