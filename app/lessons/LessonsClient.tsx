@@ -46,7 +46,7 @@ const LessonsClient: React.FC<LessonsClientProps> = ({
     <Container>
       <Heading
         title="Lessons"
-        subtitle="what you've been learning and what you're learning"
+        subtitle="what you've learned and what you're learning"
       />
       <div
         className="
