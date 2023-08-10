@@ -94,7 +94,7 @@ const Search = () => {
           text-center
         "
         >
-          Locally
+          {locationLabel}
         </div>
         <div
           className="
