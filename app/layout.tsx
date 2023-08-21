@@ -11,6 +11,7 @@ import SearchModal from "./components/modals/SearchModal";
 
 import ToasterProvider from "./providers/ToasterProvider";
 import getCurrentUser from "./actions/getCurrentUser";
+import Sidebar from "./components/inputs/layout/Sidebar";
 
 export const metadata = {
   title: "Munity",
@@ -29,6 +30,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
+          {/* <Sidebar /> */}
           <ToasterProvider />
           <SearchModal />
           <TimeModal />
