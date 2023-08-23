@@ -1,52 +1,67 @@
 "use client";
 
-import { IconType } from "react-icons";
-import { SafeUser } from "@/app/types";
+import React from "react";
+import { useRouter } from "next/navigation";
+import GuideHeader from "../components/GuideHeader";
+import Skills from "../components/Skills";
+import Availability from "../components/Availability";
+import Portfolio from "../components/Portfolio";
+import Testimonials from "../components/Testimonials";
+import RatingsAndReviews from "../components/RatingsAndReviews";
+import BookingButton from "../components/BookingButton";
 
-import Avatar from "../components/Avatar";
+// Sample data for demonstration purposes. In a real-world scenario, fetch this data from an API or database.
+const guideData = {
+  name: "John Doe",
+  avatarUrl: "/path/to/avatar.jpg",
+  bio: "Experienced guitarist with over 10 years of teaching experience.",
+  skills: [
+    {
+      id: 1,
+      name: "Guitar",
+      description: "Beginner to advanced guitar lessons.",
+    },
+    // More skills...
+  ],
+  availability: [
+    { day: "Monday", time: "10am - 2pm" },
+    // More availability slots...
+  ],
+  portfolio: [
+    {
+      id: 1,
+      title: "Guitar Session",
+      description: "Teaching a group of students.",
+      imageUrl: "/path/to/image.jpg",
+    },
+    // More portfolio items...
+  ],
+  testimonials: [
+    { id: 1, author: "Alice", content: "John is an amazing teacher!" },
+    // More testimonials...
+  ],
+  reviews: [
+    { id: 1, author: "Bob", rating: 5, content: "Loved the session!" },
+    // More reviews...
+  ],
+};
 
-interface Skill {
-  icon: IconType;
-  label: string;
-}
+const GuideProfile: React.FC = () => {
+  // const router = useRouter();
+  // const { id } = router.query;
 
-interface GuideProfileProps {
-  guide: SafeUser;
-  skills: Skill[];
-  experience: string;
-  rating: number; // 1-5 for simplicity, can be extended later
-}
+  // In a real-world scenario, use the `id` to fetch the guide's data from an API or database.
 
-const GuideProfile: React.FC<GuideProfileProps> = ({
-  guide,
-  skills,
-  experience,
-  rating,
-}) => {
+  console.log(guideData);
   return (
-    <div className="col-span-4 flex flex-col gap-8">
-      <div className="flex flex-col gap-2">
-        <div className="text-xl font-semibold flex flex-row items-center gap-2">
-          <Avatar src={guide?.image} />
-          <div className="">{guide?.name}</div>
-        </div>
-      </div>
-      <hr />
-      <div className="flex flex-row gap-2">
-        {skills.map((skill) => (
-          <div key={skill.label} className="flex items-center gap-2">
-            <skill.icon />
-            <div className="font-light">{skill.label}</div>
-          </div>
-        ))}
-      </div>
-      <hr />
-      <div className="text-lg font-light text-neutral-500">{experience}</div>
-      <hr />
-      <div className="flex flex-row items-center gap-2">
-        {"★".repeat(rating)} {/* Simple star rating for illustration */}
-        <div className="font-light">({rating}/5)</div>
-      </div>
+    <div className="guide-profile">
+      <GuideHeader {...guideData} />
+      <Skills skills={guideData.skills} />
+      <Availability slots={guideData.availability} />
+      <Portfolio items={guideData.portfolio} />
+      <Testimonials testimonials={guideData.testimonials} />
+      <RatingsAndReviews reviews={guideData.reviews} />
+      <BookingButton />
     </div>
   );
 };
