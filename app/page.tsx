@@ -6,6 +6,8 @@ import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
 
+import { UserButton } from "@clerk/nextjs";
+
 interface HomeProps {
   searchParams: IlistingParams;
 }
@@ -25,6 +27,9 @@ const Home = async ({ searchParams }: HomeProps) => {
   return (
     <ClientOnly>
       <Container>
+        <div>
+          <UserButton afterSignOutUrl="/" />
+        </div>
         <div
           className="
             pt-24 
